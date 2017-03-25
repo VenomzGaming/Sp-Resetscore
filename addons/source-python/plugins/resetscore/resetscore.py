@@ -9,7 +9,8 @@ from translations.strings import LangStrings
 ## GLOBALS
 
 strings = LangStrings('resetscore')
-
+ALREADY_MSG = SayText2(strings['Already'])
+RESETSCORE_MSG = SayText2(strings['Resetscore'])
 
 ## SAY REGISTERS
 
@@ -19,8 +20,8 @@ def _resetscrore_say_command(command, index, team_only=None):
     if player.kills != 0 or player.deaths != 0: 
         player.kills = 0
         player.deaths = 0
-        SayText2(strings['Resetscore']).send(player.index)
+        RESETSCORE_MSG.send(player.index)
     else:
-        SayText2(strings['Already']).send(player.index)
+        ALREADY_MSG.send(player.index)
 
     return CommandReturn.BLOCK
